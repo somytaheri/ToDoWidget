@@ -49,7 +49,7 @@ module.exports = function (grunt) {
                     sourceMap: true
                 },
                 files: {
-                    'public/css/style.css': 'source/scss/**/*.scss'
+                    'source/scss/style.css': 'source/scss/style.scss'
                 }
             }
         },
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
 
             dist: {
                 files: {
-                    'dist/': 'css/*.css'
+                    'source/scss/stylePrefixed.css': 'source/scss/style.css'
                 }
             }
         },
@@ -109,19 +109,6 @@ module.exports = function (grunt) {
         },
 
         copy: {
-            css_to_scss: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'source/fonts/project-icon/',
-                        src: ['project-icon.css'],
-                        dest: 'source/scss/',
-                        rename: function (dest, src) {
-                            return dest + src.replace(/\.css$/, ".scss").replace(/^project-icon/, "_icon-font");
-                        }
-                    }
-                ]
-            },
             media: {
                 files: [
                     {
@@ -149,6 +136,16 @@ module.exports = function (grunt) {
                         cwd: 'source',
                         src: ['index.html'],
                         dest: 'public'
+                    }
+                ]
+            },
+            js: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'source/scripts',
+                        src: ['**/*'],
+                        dest: 'public/scripts'
                     }
                 ]
             }
@@ -181,7 +178,7 @@ module.exports = function (grunt) {
             },
             target: {
                 files: {
-                    'public/css/style.min.css': ['style.css']
+                    'public/css/style.min.css': ['source/scss/stylePrefixed.css']
                 }
             }
         },
@@ -210,7 +207,6 @@ module.exports = function (grunt) {
             },
             js: {
                 files: 'source/scripts/*.js',
-                tasks: ['uglify']
             },
 
             scss: {

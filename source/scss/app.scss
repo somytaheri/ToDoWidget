@@ -1,0 +1,25 @@
+.list {
+  background: linear-gradient(-20deg, #2f3247 20%, #a0cecf 80%);
+  width: 320px;
+  min-height: 250px;
+  padding: 10px;
+}
+.list__card {
+  width: 280px;
+  height: 25px;
+  color: #2f3247;
+  background-color: rgba(250,250,250,0.5);
+  margin: 10px auto;
+  padding: 10px 10px;
+  line-height: 25px;
+}
+
+.card__composer {
+  color: #2f3247;
+  padding: 10px 10px;
+  line-height: 25px;
+}
+
+.submit__button {
+  margin-left: 10px;
+}
